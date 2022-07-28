@@ -24,7 +24,6 @@ async function getOrder() {
   if (o) {
     order.value = o;
     if (order.value.paymentMethod === "stripe") {
-      console.log('hi');
       const ses = await apiFetch(
         `${configOrder.DOMAIN}/api/orders/session?session=${order.value.paymentSession}`
       );
@@ -66,7 +65,7 @@ function payPayop() {
 
 async function getPaid() {
   if (session.value.payment_status === "paid") {
-    order.orderItems.forEach((item) => {
+    order.value.orderItems.forEach((item) => {
       useFetch(`${configOrder.DOMAIN}/api/licences/${item}`)
         .then((res) => {
           licences.value.push(res.data);
