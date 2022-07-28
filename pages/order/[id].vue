@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import apiFetch from "~~/composables/useInterceptorFetch";
+import VueGtag from 'vue-gtag'
 
 const configOrder = useRuntimeConfig();
 const route = useRoute();
@@ -22,10 +23,6 @@ async function getOrder() {
   );
   if (o) {
     order.value = o;
-    // if (this.order.paymentStatus === "completed") {
-    //   this.track(this.order.total, this.order._id);
-    // }
-    console.log(order.value);
     if (order.value.paymentMethod === "stripe") {
       console.log('hi');
       const ses = await apiFetch(
@@ -122,25 +119,6 @@ function skinParser(id) {
 onMounted(() => {
   getOrder();
 });
-
-// track(total, id) {
-//   this.$gtag.event("conversion", {
-//     transaction_id: id,
-//     send_to: "AW-10906096717/U7dmCLm-ssMDEM2ot9Ao",
-//     event_category: "conversion",
-//     event_label: "conversion",
-//     value: total.toFixed(2),
-//     currency: "EUR",
-//   });
-//   this.$gtag.event("conversion", {
-//     transaction_id: id,
-//     send_to: "AW-363008517/InE1COGf6f0CEIWkjK0B",
-//     event_category: "conversion",
-//     event_label: "conversion",
-//     value: total.toFixed(2),
-//     currency: "EUR",
-//   });
-// },
 
 useHead({
   title: `Order #${order.value._id}`,
