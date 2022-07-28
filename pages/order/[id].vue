@@ -10,36 +10,49 @@ const orderFound = ref(false);
 const mount = ref(false);
 const product = ref({});
 const skin = ref([]);
+const watchRoute = ref(route.params.id);
 const licences = ref([]);
 
 type orderObject = {
   paymentSession: string;
   orderItems: any;
 };
-async function getOrder() {
-  const o = await apiFetch<orderObject>(
-    `${configOrder.DOMAIN}/api/orders/${route.params.id}`
-  );
-  if (o) {
-    order.value = o;
-    if (order.value.paymentMethod === "stripe") {
-      const ses = await apiFetch(
-        `${configOrder.DOMAIN}/api/orders/session?session=${order.value.paymentSession}`
+
+const { refresh } = await useAsyncData(
+  "order",
+  async () => {
+    try {
+      const o = await apiFetch<orderObject>(
+        `${configOrder.DOMAIN}/api/orders/${route.params.id}`
       );
-      if (ses) {
-        session.value = ses;
-        orderFound.value = true;
-        await getProduct();
-        await getPaid();
-        await getSkin();
-        mount.value = true;
+      if (o) {
+        order.value = o;
+        if (order.value.paymentMethod === "stripe") {
+          const ses = await apiFetch(
+            `${configOrder.DOMAIN}/api/orders/session?session=${order.value.paymentSession}`
+          ).then((ses) => {
+            session.value = ses;
+            orderFound.value = true;
+          });
+          await getProduct();
+          await getPaid();
+          await getSkin();
+          mount.value = true;
+        } else {
+          orderFound.value = false;
+          mount.value = true;
+        }
       }
-    } else {
-      orderFound.value = false;
-      mount.value = true;
+    } catch (err) {
+      console.log(err);
     }
+  },
+  {
+    watch: [watchRoute],
   }
-}
+);
+
+await refresh();
 
 async function getProduct() {
   if (session.value.metadata.product_id) {
@@ -64,27 +77,29 @@ function payPayop() {
 
 async function getPaid() {
   if (session.value.payment_status === "paid") {
-    order.value.orderItems.forEach((item) => {
-      useFetch(`${configOrder.DOMAIN}/api/licences/${item}`)
+    await order.value.orderItems.map((item) => {
+      licences.value = [];
+      apiFetch(`${configOrder.DOMAIN}/api/licences/${item}`)
         .then((res) => {
-          licences.value.push(res.data);
+          licences.value.push(res);
         })
         .then(() => {
-          const repss = useFetch(
+          useFetch(
             `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
-          );
-          if (repss.data.value) {
-            licences.value.forEach((licence) => {
-              var holder = [];
-              licence.skins.forEach((skiny) => {
-                var found = Object.values(repss.data.value).find(
-                  (skin) => skin.id === parseInt(skiny)
-                );
-                holder.push(found.name);
+          ).then((repss) => {
+            if (repss.data.value) {
+              licences.value.forEach((licence) => {
+                var holder = [];
+                licence.skins.forEach((skiny) => {
+                  var found = Object.values(repss.data.value).find(
+                    (skin) => skin.id === parseInt(skiny)
+                  );
+                  holder.push(found.name);
+                });
+                licence.skinList = holder;
               });
-              licence.skinList = holder;
-            });
-          }
+            }
+          });
         });
     });
   }
@@ -117,12 +132,8 @@ async function skinParser(id) {
   return found.name;
 }
 
-onMounted(() => {
-  getOrder();
-});
-
 useHead({
-  title: `Order #${order.value._id}`,
+  title: `Order #${route.params.id}`,
 });
 </script>
 
