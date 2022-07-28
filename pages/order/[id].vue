@@ -10,7 +10,6 @@ const orderFound = ref(false);
 const mount = ref(false);
 const product = ref({});
 const skin = ref([]);
-const skins = ref([]);
 const licences = ref([]);
 
 type orderObject = {
@@ -77,7 +76,7 @@ async function getPaid() {
             ).then((repss) => {
               var holder = [];
               licence.skins.forEach((skiny) => {
-                var found = Object.values(repss.data).find(
+                var found = Object.values(repss.data.value).find(
                   (skin) => skin.id === parseInt(skiny)
                 );
                 holder.push(found.name);
@@ -110,7 +109,7 @@ function skinParser(id) {
   useFetch(
     `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
   ).then((resp) => {
-    found = Object.values(resp.data).find((skin) => skin.id === parseInt(id));
+    found = Object.values(resp.data.value).find((skin) => skin.id === parseInt(id));
   });
   return found.name;
 }
