@@ -140,7 +140,7 @@ useHead({
 <template>
   <div class="mt-5">
     <div class="text-light container-xl" v-if="mount && orderFound">
-      <h1 class="pt-4">Order #{{ order._id }}</h1>
+      <h1 class="pt-4 fs-4">Order #{{ order._id }}</h1>
       <p>Order Status: {{ order.paymentStatus }}</p>
       <div class="row pt-4 text-light">
         <div class="col-12 col-md-6">

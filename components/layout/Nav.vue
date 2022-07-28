@@ -10,8 +10,32 @@ if (typeof window !== "undefined") {
 }
 
 const logout = async () => {
-  await store.logout('/');
+  await store.logout("/");
 };
+
+const StickyNav = () => {
+  var nav = document.querySelector("nav");
+  var routers = document.getElementsByClassName("nav-router");
+
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 100) {
+      nav.classList.add("bg-dark", "shadow", "text-light");
+    } else {
+      nav.classList.remove("bg-dark", "shadow");
+    }
+  });
+};
+
+onMounted(() => {
+  StickyNav();
+});
+const route = useRoute();
+watch(
+  () => route.fullPath,
+  () => {
+    document.getElementById("navbarCollapse").classList.remove("show");
+  }
+);
 </script>
 
 <template>
@@ -622,11 +646,7 @@ m38 -75 c-3 -3 -9 2 -12 12 -6 14 -5 15 5 6 7 -7 10 -15 7 -18z"
                 >
               </li>
               <li>
-                <button
-                  class="dropdown-item"
-                  role="button"
-                  @click="logout"
-                >
+                <button class="dropdown-item" role="button" @click="logout">
                   Logout
                 </button>
               </li>

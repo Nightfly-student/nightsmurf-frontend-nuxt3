@@ -148,3 +148,11 @@ useHead({
     </div>
   </div>
 </template>
+
+<style scoped>
+@media (max-width: 540px) {
+  .w-50 {
+    width: 85% !important;
+  }
+}
+</style>
