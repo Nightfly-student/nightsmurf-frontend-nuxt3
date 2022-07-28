@@ -31,7 +31,7 @@ useHead({
             for EUW, EUNE, NA, TR and OCE.`"
       :button="true"
       :trustpilot="true"
-      :imageUrl="'assets/images/yi_header.png'"
+      :imageUrl="'/assets/images/yi_header.png'"
       :imageTitle="'Nightsmurf Cosmic Yi'"
       :imageAlt="'Cosmic Master Yi Header Image'"
     />
