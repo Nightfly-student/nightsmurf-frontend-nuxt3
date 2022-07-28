@@ -7,8 +7,7 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "nuxt": "^3.0.0-rc.6",
-    "sitemap": "^7.1.1"
+    "nuxt": "^3.0.0-rc.6"
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.0.0",

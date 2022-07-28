@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /order/
+Disallow: /user/
+
+
+Sitemap: https://nightsmurf.com/sitemap.xml
