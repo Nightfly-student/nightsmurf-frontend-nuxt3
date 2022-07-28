@@ -5,13 +5,20 @@ const CE = ref(false);
 const onSettingsClick = function (value) {
   CP.value = false;
   CE.value = false;
-  this[value] = true;
+};
+
+const onCPClick = (active) => {
+  onSettingsClick(active);
+  CP.value = true;
+};
+const onCEClick = (active) => {
+  onSettingsClick(active);
+  CE.value = true;
 };
 
 useHead({
   title: "Settings",
 });
-
 </script>
 
 <template>
@@ -31,14 +38,14 @@ useHead({
           <li class="nav-item">
             <a
               class="nav-link"
-              @click="onSettingsClick('CP')"
+              @click="onCPClick('CP')"
               :class="{ active: CP }"
               aria-current="page"
               >Change Password</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" @click="onSettingsClick('CE')" :class="{ active: CE }"
+            <a class="nav-link" @click="onCEClick('CE')" :class="{ active: CE }"
               >Change Email</a
             >
           </li>

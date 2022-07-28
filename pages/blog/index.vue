@@ -52,7 +52,7 @@ useHead({
         <div class="row no-gutters">
           <div class="col-lg-5 col-sm-12 col-12">
             <img
-              :src="`/assets/${blog.frontmatter.socialImage}`"
+              :src="`${blog.frontmatter.socialImage}`"
               class="img-fluid img-size"
               alt=""
             />

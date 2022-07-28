@@ -11,7 +11,7 @@ const LAS = ref(false);
 const LAN = ref(false);
 const RU = ref(false);
 
-const onClick = function(active) {
+const onClick = function (active) {
   EUW.value = false;
   EUNE.value = false;
   NA.value = false;
@@ -21,8 +21,44 @@ const onClick = function(active) {
   LAS.value = false;
   LAN.value = false;
   RU.value = false;
-  this[active] = true;
   emit("selectedRegion", active);
+};
+
+const onEUWClick = (active) => {
+  onClick(active);
+  EUW.value = true;
+};
+const onEUNEClick = (active) => {
+  onClick(active);
+  EUNE.value = true;
+};
+const onNAClick = (active) => {
+  onClick(active);
+  NA.value = true;
+};
+const onTRClick = (active) => {
+  onClick(active);
+  TR.value = true;
+};
+const onOCEClick = (active) => {
+  onClick(active);
+  OCE.value = true;
+};
+const onBRClick = (active) => {
+  onClick(active);
+  BR.value = true;
+};
+const onLASClick = (active) => {
+  onClick(active);
+  LAS.value = true;
+};
+const onLANClick = (active) => {
+  onClick(active);
+  LAN.value = true;
+};
+const onRUClick = (active) => {
+  onClick(active);
+  RU.value = true;
 };
 </script>
 
@@ -30,7 +66,7 @@ const onClick = function(active) {
   <div class="d-flex justify-content-center">
     <ul class="nav nav-pills justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('EUW')" :class="{ active: EUW }">
+        <a class="nav-link" @click="onEUWClick('EUW')" :class="{ active: EUW }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +134,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('EUNE')" :class="{ active: EUNE }">
+        <a class="nav-link" @click="onEUNEClick('EUNE')" :class="{ active: EUNE }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +187,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('NA')" :class="{ active: NA }">
+        <a class="nav-link" @click="onNAClick('NA')" :class="{ active: NA }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +257,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('TR')" :class="{ active: TR }">
+        <a class="nav-link" @click="onTRClick('TR')" :class="{ active: TR }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -267,7 +303,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('OCE')" :class="{ active: OCE }">
+        <a class="nav-link" @click="onOCEClick('OCE')" :class="{ active: OCE }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -316,7 +352,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('BR')" :class="{ active: BR }">
+        <a class="nav-link" @click="onBRClick('BR')" :class="{ active: BR }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -359,7 +395,7 @@ const onClick = function(active) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('LAS')" :class="{ active: LAS }">
+        <a class="nav-link" @click="onLASClick('LAS')" :class="{ active: LAS }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -400,7 +436,7 @@ c3 -10 23 -27 46 -37 26 -11 41 -24 41 -35 0 -10 6 -18 13 -18 15 0 37 -37 35
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('LAN')" :class="{ active: LAN }">
+        <a class="nav-link" @click="onLANClick('LAN')" :class="{ active: LAN }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -458,7 +494,7 @@ c3 -10 23 -27 46 -37 26 -11 41 -24 41 -35 0 -10 6 -18 13 -18 15 0 37 -37 35
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onClick('RU')" :class="{ active: RU }">
+        <a class="nav-link" @click="onRUClick('RU')" :class="{ active: RU }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
