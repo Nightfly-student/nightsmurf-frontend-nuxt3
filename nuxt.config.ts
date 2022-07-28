@@ -3,9 +3,10 @@ import { defineNuxtConfig } from "nuxt";
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   buildModules: ["@pinia/nuxt"],
-  modules: ["@formkit/nuxt"],
+  modules: ["@formkit/nuxt", "~/modules/sitemap"],
   publicRuntimeConfig: {
-    DOMAIN: process.env.DOMAIN || 'https://sea-turtle-app-rre5x.ondigitalocean.app',
+    DOMAIN:
+      process.env.DOMAIN || "https://sea-turtle-app-rre5x.ondigitalocean.app",
     URL: process.env.URL,
   },
   meta: {
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
       },
-      { rel: "icon", type: "image/x-icon", href: "~/public/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "@/favicon.ico" },
     ],
     script: [
       {
@@ -28,4 +29,7 @@ export default defineNuxtConfig({
     ],
   },
   plugins: [{ src: "~/plugins/notification.client.ts", ssr: false }],
+  sitemap: {
+    hostname: "https://nightsmurf.com",
+  },
 });
