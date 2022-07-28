@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import apiFetch from "~~/composables/useInterceptorFetch";
-import VueGtag from 'vue-gtag'
+import VueGtag from "vue-gtag";
 
 const configOrder = useRuntimeConfig();
 const route = useRoute();
@@ -70,10 +70,11 @@ async function getPaid() {
           licences.value.push(res.data);
         })
         .then(() => {
-          licences.value.forEach((licence) => {
-            useFetch(
-              `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
-            ).then((repss) => {
+          const repss = useFetch(
+            `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
+          );
+          if (repss.data.value) {
+            licences.value.forEach((licence) => {
               var holder = [];
               licence.skins.forEach((skiny) => {
                 var found = Object.values(repss.data.value).find(
@@ -83,7 +84,7 @@ async function getPaid() {
               });
               licence.skinList = holder;
             });
-          });
+          }
         });
     });
   }
@@ -93,7 +94,7 @@ async function getSkin() {
     await useFetch(
       `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
     ).then((resp) => {
-      var found = Object.values(resp.data).find(
+      var found = Object.values(resp.data.value).find(
         (skin) => skin.id === parseInt(session.value.metadata.skin_id)
       );
       var splitted = found.loadScreenPath.split("/");
@@ -104,12 +105,14 @@ async function getSkin() {
     });
   }
 }
-function skinParser(id) {
+async function skinParser(id) {
   var found = <any>{};
-  useFetch(
+  await useFetch(
     `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json`
   ).then((resp) => {
-    found = Object.values(resp.data.value).find((skin) => skin.id === parseInt(id));
+    found = Object.values(resp.data.value).find(
+      (skin) => skin.id === parseInt(id)
+    );
   });
   return found.name;
 }
@@ -294,9 +297,7 @@ useHead({
     </div>
     <div v-if="!orderFound && mount" class="text-center">
       <h1 class="pt-4">No Order Found :(</h1>
-      <NuxtLink
-        to="/"
-        class="text-primary cursor text-decoration-none"
+      <NuxtLink to="/" class="text-primary cursor text-decoration-none"
         >Return to home</NuxtLink
       >
     </div>
@@ -313,7 +314,7 @@ useHead({
   margin-top: 300px;
 }
 .margin-div {
-    margin-bottom: 300px;
+  margin-bottom: 300px;
 }
 .cursor {
   cursor: pointer;
