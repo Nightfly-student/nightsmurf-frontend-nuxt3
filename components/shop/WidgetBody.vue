@@ -62,10 +62,16 @@ await refresh();
   </div>
 </template>
 
-// Add Royalty
-
 <style scoped>
 #shop_widget {
   min-height: 600px;
+}
+.info-box-shop p {
+  color: gainsboro;
+}
+@media (max-width: 1199px) {
+  .width-mobile-small {
+    width: 90% !important;
+  }
 }
 </style>
