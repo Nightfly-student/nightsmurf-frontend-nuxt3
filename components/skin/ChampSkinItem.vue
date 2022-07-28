@@ -70,7 +70,7 @@ function priceUpper() {
       </a>
       <a v-else class="btn btn-primary button-warranty hidden"> </a>
       <img
-        :src="imageLoading ? '/assets/images/blank_loading.jpg' : imgSource"
+        :src="imageLoading ? 'https://res.cloudinary.com/droomsocial/image/upload/v1659009662/blank_loading_lizjgo.jpg' : imgSource"
         class="card-img-top img-size-pos"
         :alt="champion.id + ' Image'"
         :title="champion.name"

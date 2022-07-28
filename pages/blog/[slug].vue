@@ -40,7 +40,7 @@ const head = async() => {
       },
       {
         property: "og:image",
-        content: `https://nightsmurf.com/assets/${blog.value.front.socialImage}`,
+        content: `${blog.value.front.socialImage}`,
       },
       { property: "og:type", content: "article" },
     ],
@@ -55,7 +55,7 @@ await head();
       <h1 class="text-center">{{ blog.front.title }}</h1>
       <img
         class="img-size pt-3 pb-3"
-        :src="`/assets/${blog.front.socialImage}`"
+        :src="`${blog.front.socialImage}`"
       />
       <button class="btn btn-primary m-4" @click="$router.push('/blog')">
         Return to Blog

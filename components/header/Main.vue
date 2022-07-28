@@ -65,7 +65,6 @@ interface HeaderProps {
   title: string;
   body: string;
   button: boolean;
-  imageUrl: string;
   imageTitle: string;
   imageAlt: string;
   trustpilot: boolean;
@@ -102,7 +101,7 @@ onMounted(() => {
           <img
             id="header_image"
             class="img-fluid w-full"
-            :src="imageUrl"
+            src="/assets/images/yi_header.png"
             :alt="imageAlt"
             :title="imageTitle"
           />
