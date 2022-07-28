@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   buildModules: ["@pinia/nuxt"],
   modules: ["@formkit/nuxt"],
   publicRuntimeConfig: {
-    DOMAIN: process.env.DOMAIN,
+    DOMAIN: process.env.DOMAIN || 'https://sea-turtle-app-rre5x.ondigitalocean.app',
     URL: process.env.URL,
   },
   meta: {
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
       },
-      { rel: "icon", type: "image/x-icon", href: "~/static/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "~/public/favicon.ico" },
     ],
     script: [
       {
