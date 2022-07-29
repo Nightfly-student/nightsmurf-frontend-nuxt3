@@ -12,7 +12,7 @@
         <div class="carousel-item active">
           <div class="card m-auto shadow">
             <img
-              src="/assets/images/twitch_4.jpg"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094305/twitch_4_qsn9ty.jpg"
               class="card-img-top img-size-pos"
               alt="League Of Legends Twitch Image"
               title="Gangster Twitch"
@@ -22,7 +22,7 @@
                 <div class="col-2">
                   <img
                     class="round-champ mt-2 mx-2"
-                    src="/assets/images/Twitch.png"
+                    src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/Twitch_m07byw.png"
                     alt="Twitch Rounded Image"
                     title="Twitch Round"
                   />
@@ -37,7 +37,7 @@
         <div class="carousel-item">
           <div class="card m-auto shadow">
             <img
-              src="/assets/images/Kassadin_5.jpg"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/Kassadin_5_csj3kw.jpg"
               class="card-img-top img-size-pos"
               alt="League Of Legends Kassadin Image"
               title="Cosmic Reaver Kassadin"
@@ -47,7 +47,7 @@
                 <div class="col-2">
                   <img
                     class="round-champ mt-2 mx-2"
-                    src="/assets/images/Kassadin.png"
+                    src="https://res.cloudinary.com/droomsocial/image/upload/v1659094302/Kassadin_tuvczm.png"
                     alt="Kassadin Rounded Image"
                     title="Kassadin Round"
                   />
@@ -64,7 +64,7 @@
         <div class="carousel-item">
           <div class="card m-auto shadow">
             <img
-              src="/assets/images/Nidalee_9.jpg"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/Nidalee_9_bqaiah.jpg"
               class="card-img-top img-size-pos"
               alt="League Of Legends Nidalee Image"
               title="Super Galaxy Nidalee"
@@ -74,7 +74,7 @@
                 <div class="col-2">
                   <img
                     class="round-champ mt-2 mx-2"
-                    src="/assets/images/Nidalee.png"
+                    src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/Nidalee_frzfb7.png"
                     alt="Nidalee Rounded Image"
                     title="Nidalee Round"
                   />

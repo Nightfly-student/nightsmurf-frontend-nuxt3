@@ -20,7 +20,7 @@ const props = defineProps<CardProps>();
   <div class="card text-light m-3 py-3 shadow" style="width: 18rem">
     <p class="btn btn-primary button-warranty">Lifetime Warranty</p>
     <img
-      src="/assets/images/yone_1.jpg"
+      src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/yone_1_raaatp.jpg"
       class="card-img-top img-size-pos"
       alt="Nightsmurf Yone Card Image"
       title="Yone Image"

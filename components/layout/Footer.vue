@@ -25,7 +25,7 @@ const instagram = () => {
         <div class="col-md-6 col-12 pb-5">
           <div class="w-75 m-auto">
             <h2>
-              <img class="img-size" src="/assets/images/logo.png" alt="Nightsmurf Big Logo" title="Nightsmurf Logo" /><span class="ms-3"
+              <img class="img-size" src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/logo_ybtl4t.png" alt="Nightsmurf Big Logo" title="Nightsmurf Logo" /><span class="ms-3"
                 >Nightsmurf</span
               >
             </h2>

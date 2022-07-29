@@ -101,7 +101,7 @@ onMounted(() => {
           <img
             id="header_image"
             class="img-fluid w-full"
-            src="/assets/images/yi_header.png"
+            src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/yi_header_uni3wx.png"
             :alt="imageAlt"
             :title="imageTitle"
           />

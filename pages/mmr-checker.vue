@@ -45,7 +45,7 @@ useHead({
             <img
               id="lootbox"
               class="img-fluid h-75 w-full"
-              src="/assets/images/logowithout.png"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/logowithout_-_Copy_ohengw.png"
               alt="Nightsmurf logo as Header Image"
               title="Nightsmurf Big Logo"
             />

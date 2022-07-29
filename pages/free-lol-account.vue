@@ -160,7 +160,7 @@ onMounted(() => {
             <img
               id="lootbox"
               class="img-fluid w-full"
-              src="/assets/images/free-lootbox.png"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/free-lootbox_gm8h7u.png"
               alt="Free LoL Account Lootbox"
               title="Nightsmurf Lootbox"
             />
@@ -250,7 +250,7 @@ onMounted(() => {
                   <img
                     id="lootbox"
                     class="img-fluid w-full"
-                    src="/assets/images/free-lootbox.png"
+                    src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/free-lootbox_gm8h7u.png"
                     alt="Free LoL Account Lootbox Small"
                     title="Small Nightsmurf Lootbox"
                   />

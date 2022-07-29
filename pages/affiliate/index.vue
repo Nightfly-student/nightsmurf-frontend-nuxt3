@@ -61,7 +61,7 @@ useHead({
             <img
               id="header_image"
               class="img-fluid w-full"
-              src="/assets/images/yi_header.png"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/yi_header_uni3wx.png"
               alt="Cosmic Master Yi Header Image"
               title="Nightsmurf Cosmic Yi"
             />
@@ -142,7 +142,7 @@ useHead({
                 class="img-fluid"
                 alt="example affiliate widget"
                 title="affiliate widget"
-                src="/assets/images/b_blue.png"
+                src="https://res.cloudinary.com/droomsocial/image/upload/v1659094302/b_blue_yrfxie.png"
               />
             </div>
             <div class="tab-3" v-if="paid">
@@ -157,7 +157,7 @@ useHead({
                 class="img-fluid"
                 alt="example affiliate dashboard"
                 title="affiliate dashboard"
-                src="/assets/images/dashboard.png"
+                src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/dashboard_l8dflv.png"
               />
             </div>
           </div>

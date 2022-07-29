@@ -11,7 +11,7 @@ useHead({
         <div class="row d-flex align-items-center justify-content-center h-100">
           <div class="col-md-8 col-lg-7 col-xl-6">
             <img
-              src="assets/images/yi_header.png"
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/yi_header_uni3wx.png"
               class="img-fluid img-login"
               alt="Master yi"
             />

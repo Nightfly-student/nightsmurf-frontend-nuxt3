@@ -221,7 +221,7 @@ const checkCoupon = () => {
               <button class="btn btn-dark" @click="startPayment('stripe')">
                 <img
                   class="img-size"
-                  src="/assets/images/stripe.png"
+                  src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/stripe_ccymuz.png"
                   alt="Stripe Payment Gateway"
                   title="Stripe"
                 />
