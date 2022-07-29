@@ -11,9 +11,9 @@ const QuoteProps = defineProps<QuoteProps>();
 
 <template>
   <div class="banner">
-    <h1 id="banner_text" class="text-center text-light p-5">
+    <h2 id="banner_text" class="text-center text-light p-5 fs-1">
       {{title}} <span>{{highlight}}</span>
-    </h1>
+    </h2>
   </div>
 </template>
 
