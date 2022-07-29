@@ -7,15 +7,6 @@ import {
   BIconYoutube,
 } from "bootstrap-icons-vue";
 
-const youtube = () => {
-      window.open("https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ");
-}
-const twitter = () => {
-      window.open("https://twitter.com/Nightsmurf_com");
-}
-const instagram = () => {
-   window.open("https://www.instagram.com/nightsmurf_com/?hl=en");
-}
 </script>
 
 <template>
@@ -25,9 +16,12 @@ const instagram = () => {
         <div class="col-md-6 col-12 pb-5">
           <div class="w-75 m-auto">
             <h2>
-              <img class="img-size" src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/logo_ybtl4t.png" alt="Nightsmurf Big Logo" title="Nightsmurf Logo" /><span class="ms-3"
-                >Nightsmurf</span
-              >
+              <img
+                class="img-size"
+                src="https://res.cloudinary.com/droomsocial/image/upload/v1659094303/logo_ybtl4t.png"
+                alt="Nightsmurf Big Logo"
+                title="Nightsmurf Logo"
+              /><span class="ms-3">Nightsmurf</span>
             </h2>
             <p>
               Cheapest League of Legends Smurfs for you to stomp kids, and make
@@ -35,18 +29,22 @@ const instagram = () => {
             </p>
           </div>
           <div class="w-75 m-auto">
-            <BIconTwitter @click="twitter" class="icon-size me-4" />
-            <BIconInstagram @click="instagram" class="icon-size me-4" />
-            <BIconYoutube @click="youtube" class="icon-size me-4" />
+            <NuxtLink to="https://twitter.com/Nightsmurf_com"
+              ><BIconTwitter class="icon-size me-4"
+            /></NuxtLink>
+            <NuxtLink to="https://www.instagram.com/nightsmurf_com/?hl=en"
+              ><BIconInstagram @click="instagram" class="icon-size me-4"
+            /></NuxtLink>
+            <NuxtLink to="https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ"
+              ><BIconYoutube @click="youtube" class="icon-size me-4"
+            /></NuxtLink>
           </div>
         </div>
         <div class="col-md-3 col-6 padding-footer">
           <p class="fs-5">Nightsmurf</p>
           <ul class="nav flex-column">
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/contact"
-                >Contact Us</NuxtLink
-              >
+              <NuxtLink class="nav-link" to="/contact">Contact Us</NuxtLink>
             </li>
             <li class="nav-item">
               <NuxtLink class="nav-link" to="/terms-of-service"
