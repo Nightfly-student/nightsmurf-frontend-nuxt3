@@ -7,13 +7,28 @@ const OCER = ref(false);
 const emits = defineEmits(["selectedRegion"]);
 
 const onClickRegion = function (active) {
-  this.EUWR = false;
-  this.EUNER = false;
-  this.OCER = false;
-  this.NAR = false;
-
-  this[active] = true;
+  EUWR.value = false;
+  EUNER.value = false;
+  OCER.value = false;
+  NAR.value = false;
   emits("selectedRegion", active.replace("R", ""));
+};
+
+const onClickEUW = (active) => {
+  onClickRegion(active);
+  EUWR.value = true;
+};
+const onClickEUNE = (active) => {
+  onClickRegion(active);
+  EUNER.value = true;
+};
+const onClickOCE = (active) => {
+  onClickRegion(active);
+  OCER.value = true;
+};
+const onClickNA = (active) => {
+  onClickRegion(active);
+  NAR.value = true;
 };
 </script>
 
@@ -23,7 +38,7 @@ const onClickRegion = function (active) {
       <li class="nav-item">
         <a
           class="nav-link"
-          @click="onClickRegion('EUWR')"
+          @click="onClickEUW('EUWR')"
           :class="{ active: EUWR }"
         >
           <svg
@@ -95,7 +110,7 @@ const onClickRegion = function (active) {
       <li class="nav-item">
         <a
           class="nav-link"
-          @click="onClickRegion('EUNER')"
+          @click="onClickEUNE('EUNER')"
           :class="{ active: EUNER }"
         >
           <svg
@@ -152,7 +167,7 @@ const onClickRegion = function (active) {
       <li class="nav-item">
         <a
           class="nav-link"
-          @click="onClickRegion('NAR')"
+          @click="onClickNA('NAR')"
           :class="{ active: NAR }"
         >
           <svg
@@ -226,7 +241,7 @@ const onClickRegion = function (active) {
       <li class="nav-item">
         <a
           class="nav-link"
-          @click="onClickRegion('OCER')"
+          @click="onClickOCE('OCER')"
           :class="{ active: OCER }"
         >
           <svg
