@@ -6,7 +6,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     VueGtag,
     {
       config: {
-        id: "UA-197110880-2",
+        id: "G-RPQJNZBZTK",
       },
     },
     router
