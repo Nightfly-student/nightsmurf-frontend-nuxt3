@@ -33,10 +33,10 @@ import {
               ><BIconTwitter class="icon-size me-4"
             /></NuxtLink>
             <NuxtLink to="https://www.instagram.com/nightsmurf_com/?hl=en"
-              ><BIconInstagram @click="instagram" class="icon-size me-4"
+              ><BIconInstagram class="icon-size me-4"
             /></NuxtLink>
             <NuxtLink to="https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ"
-              ><BIconYoutube @click="youtube" class="icon-size me-4"
+              ><BIconYoutube class="icon-size me-4"
             /></NuxtLink>
           </div>
         </div>
