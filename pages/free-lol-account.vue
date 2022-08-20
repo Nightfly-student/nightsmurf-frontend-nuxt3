@@ -38,8 +38,6 @@ useHead({
   ],
 });
 
-const config = useRuntimeConfig();
-
 const opened = ref(4);
 const isAllowed = ref(false);
 const mounted = ref(false);
