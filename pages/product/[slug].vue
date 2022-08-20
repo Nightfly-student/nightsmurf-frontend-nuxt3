@@ -9,6 +9,7 @@ onMounted(() => {
 });
 
 const route = useRoute();
+    const config = useRuntimeConfig();
 const slug = ref(route.params.slug);
 const {
   data: product,
@@ -18,7 +19,6 @@ const {
   "product",
   async () => {
     let product;
-    const config = useRuntimeConfig();
     const region = route.params.slug.toString().split("-")[4];
     try {
       product = await apiFetch(
