@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import {
+  BIconFacebook,
+  BIconTwitter,
+  BIconInstagram,
+  BIconYoutube,
+} from "bootstrap-icons-vue";
 
 const config = useRuntimeConfig();
-const {data: blogs} = useFetch(`${config.DOMAIN}/api/blogs`);
+const route = useRoute();
+const { data: blogs } = useFetch(`${config.DOMAIN}/api/blogs/`);
 
 useHead({
   title: "Our Blog",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
@@ -25,7 +38,6 @@ useHead({
     { property: "og:type", content: "website" },
   ],
 });
-
 </script>
 
 <template>
@@ -41,23 +53,20 @@ useHead({
         </div>
       </div>
     </header>
-
     <div class="container-xl divider-top pb-4">
-      <div
-        v-for="blog in blogs"
-        :key="blog.slug"
-        @click="$router.push(`/blog/${blog.slug}`)"
-        class="card mb-4 text-light"
-      >
-        <div class="row no-gutters">
-          <div class="col-lg-5 col-sm-12 col-12">
+      <div class="row gx-5">
+        <div class="col-12 col-md-8">
+          <div
+            v-for="blog in blogs"
+            :key="blog.slug"
+            @click="$router.push(`/blog/${blog.slug}`)"
+            class="card mb-4 text-light shadow"
+          >
             <img
               :src="`${blog.frontmatter.socialImage}`"
               class="img-fluid img-size"
               alt=""
             />
-          </div>
-          <div class="col-lg-6 col-sm-12 col-12">
             <div class="card-block px-2 pt-4">
               <h4 class="card-title">{{ blog.frontmatter.title }}</h4>
               <p
@@ -68,6 +77,39 @@ useHead({
                 <NuxtLink :to="'/blog/' + blog.slug" class="btn btn-primary"
                   >Read More</NuxtLink
                 >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card text-light text-center p-3 shadow mb-4">
+            <img
+              src="https://res.cloudinary.com/droomsocial/image/upload/v1660981332/kisspng-league-of-legends-riot-games-video-game-electronic-5b21cc6d6ba390.7943858115289416774409_kqk6yb.png"
+              alt="content writer logo"
+              title="writer logo"
+              class="w-75 m-auto"
+            />
+            <h4>Content Writer</h4>
+            <p>
+              Tony is our pro LoL player from the Netherlands. Challenger past
+              seasons and smurfing daily.
+            </p>
+          </div>
+          <div class="card text-light text-center p-3 shadow">
+            <div class="w-75 m-auto">
+              <h4>Follow Us</h4>
+              <hr />
+              <div class="mb-3">
+                <NuxtLink to="https://twitter.com/Nightsmurf_com"
+                  ><BIconTwitter class="icon-size me-4"
+                /></NuxtLink>
+                <NuxtLink to="https://www.instagram.com/nightsmurf_com/?hl=en"
+                  ><BIconInstagram class="icon-size me-4"
+                /></NuxtLink>
+                <NuxtLink
+                  to="https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ"
+                  ><BIconYoutube class="icon-size me-4"
+                /></NuxtLink>
               </div>
             </div>
           </div>
@@ -88,5 +130,9 @@ useHead({
 .card-title:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+.icon-size {
+  height: 30px;
+  width: 30px;
 }
 </style>

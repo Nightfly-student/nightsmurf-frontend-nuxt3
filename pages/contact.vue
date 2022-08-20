@@ -2,8 +2,18 @@
 const discord = () => {
   window.open("https://discord.gg/yQ82SJHcU4");
 };
+
+const config = useRuntimeConfig();
+const route = useRoute();
+
 useHead({
   title: "Contact Us",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
@@ -62,8 +72,8 @@ useHead({
 
 <style scoped>
 .divider-top {
-    padding-top: 100px;
-    padding-bottom: 200px;
+  padding-top: 100px;
+  padding-bottom: 200px;
 }
 span {
   color: rgb(3, 3, 3);

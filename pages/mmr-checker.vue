@@ -1,7 +1,14 @@
 <script lang="ts" setup>
-
+const route = useRoute();
+const config = useRuntimeConfig();
 useHead({
   title: "League of Legends MMR Checker",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
@@ -25,7 +32,6 @@ useHead({
     { property: "og:type", content: "website" },
   ],
 });
-
 </script>
 
 <template>

@@ -11,9 +11,17 @@ const onAffiliateClick = function (value) {
   this[value] = true;
 };
 
+const config = useRuntimeConfig();
+const route = useRoute();
 
 useHead({
   title: "Become an Affiliate",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",

@@ -25,15 +25,24 @@ const { data, pending, error, refresh } = await useAsyncData(
 );
 await refresh();
 
-const head = async() => {
+const head = async () => {
   useHead({
     title: `League of Legends ${whatRegion} accounts`,
+    link: [
+      {
+        rel: "canonical",
+        href: `${config.URL + route.fullPath}`,
+      },
+    ],
     meta: [
       {
         name: "description",
         content: `League Of Legends Smurf Accounts, Unranked, Fresh & Instant Delivery. We Offer 30k, 40k, 50k, 60k For EUW, EUNE, NA, TR, OCE, BR, LAS, LAN, RU`,
       },
-      { property: "og:title", content: `League of Legends ${whatRegion} accounts - Nightsmurf` },
+      {
+        property: "og:title",
+        content: `League of Legends ${whatRegion} accounts - Nightsmurf`,
+      },
       {
         property: "og:description",
         content: `League Of Legends Smurf Accounts, Unranked, Fresh & Instant Delivery. We Offer 30k, 50k, 60k For EUW, EUNE, NA, TR, OCE, BR, LAS, LAN, RU`,
@@ -47,7 +56,6 @@ const head = async() => {
   });
 };
 await head();
-
 </script>
 
 <template>

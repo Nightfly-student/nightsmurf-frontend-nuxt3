@@ -1,7 +1,15 @@
 <script setup lang="ts">
+const config = useRuntimeConfig();
+const route = useRoute();
 
 useHead({
   title: "Frequently Asked Questions",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
@@ -25,7 +33,6 @@ useHead({
     { property: "og:type", content: "website" },
   ],
 });
-
 </script>
 
 <template>
@@ -46,7 +53,7 @@ useHead({
       </div>
       <div class="mt-5">
         <h2 class="text-white">Payment</h2>
-        <FaqPayment/>
+        <FaqPayment />
       </div>
     </div>
   </div>

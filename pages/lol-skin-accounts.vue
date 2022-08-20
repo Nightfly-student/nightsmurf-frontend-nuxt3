@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import apiFetch from "~~/composables/useInterceptorFetch";
-
+const route = useRoute();
+const config = useRuntimeConfig();
 const region = ref("EUW");
 const champions = ref({});
 const skins = ref([]);
@@ -18,7 +19,6 @@ const {
   "champion",
   async () => {
     let champion;
-    const config = useRuntimeConfig();
     try {
       champion = await apiFetch(`${config.DOMAIN}/api/skins/champions`);
       getSkinIds(region.value);
@@ -72,13 +72,22 @@ const checkSearch = (search) => {
 
 useHead({
   title: "Unranked Skin Accounts Starting at €5.49",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
       content:
         "Cheap High Quality League Of Legends Smurf Skin Accounts. Instant Delivery & Life Time Warranty",
     },
-    { property: "og:title", content: "Unranked Skin Accounts Starting at €5.49 - Nightsmurf" },
+    {
+      property: "og:title",
+      content: "Unranked Skin Accounts Starting at €5.49 - Nightsmurf",
+    },
     {
       property: "og:description",
       content:

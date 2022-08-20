@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { BIconArrowThroughHeart } from "bootstrap-icons-vue";
-import {useMainStore} from "@/stores";
-
+import { useMainStore } from "@/stores";
+const route = useRoute();
+const config = useRuntimeConfig();
 const store = useMainStore();
 
 useHead({
   title: "Get Discounts With Our Loyalty Program",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",

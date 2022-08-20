@@ -1,13 +1,25 @@
 <script lang="ts" setup>
+const config = useRuntimeConfig();
+const route = useRoute();
+
 useHead({
   title: "Cheapest Smurf Accounts Only €3.99",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
       content:
         "We offer the cheapest league of legends smurfs on the market. Buy your lol smurf account for EUW, NA, EUNE, TR, OCE, RU, LAN, and more",
     },
-    { property: "og:title", content: "Cheapest Smurf Accounts Only €3.99 - Nightsmurf" },
+    {
+      property: "og:title",
+      content: "Cheapest Smurf Accounts Only €3.99 - Nightsmurf",
+    },
     {
       property: "og:description",
       content:

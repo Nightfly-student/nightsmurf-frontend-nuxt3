@@ -35,18 +35,27 @@ const {
 );
 await refresh();
 
-const head = async() => {
+const head = async () => {
   useHead({
     title: `${product.value.product.title}`,
+    link: [
+      {
+        rel: "canonical",
+        href: `${config.URL + route.fullPath}`,
+      },
+    ],
     meta: [
       {
         name: "description",
-        content: `${product.value.product.body.substring(0,150)}`,
+        content: `${product.value.product.body.substring(0, 150)}`,
       },
-      { property: "og:title", content: `${product.value.product.title} - Nightsmurf` },
+      {
+        property: "og:title",
+        content: `${product.value.product.title} - Nightsmurf`,
+      },
       {
         property: "og:description",
-        content: `${product.value.product.body.substring(0,150)}`,
+        content: `${product.value.product.body.substring(0, 150)}`,
       },
       {
         property: "og:image",

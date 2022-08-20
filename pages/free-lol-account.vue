@@ -3,8 +3,17 @@ import gsap from "gsap";
 import { useMainStore } from "@/stores";
 import apiFetch from "~~/composables/useInterceptorFetch";
 
+const config = useRuntimeConfig();
+const route = useRoute();
+
 useHead({
   title: "Free League of Legends Account",
+  link: [
+    {
+      rel: "canonical",
+      href: `${config.URL + route.fullPath}`,
+    },
+  ],
   meta: [
     {
       name: "description",
