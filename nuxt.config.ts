@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     DOMAIN:
       process.env.DOMAIN || "https://sea-turtle-app-rre5x.ondigitalocean.app",
-    URL: process.env.URL,
+    URL: process.env.URL || "https://nightsmurf.com",
   },
   meta: {
     link: [
