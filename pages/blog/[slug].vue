@@ -100,7 +100,6 @@ const head = async () => {
 };
 await head();
 const blogs = await apiFetch(`${blogConfig.DOMAIN}/api/blogs/recent/${route.params.slug}?page=1&limit=5`);
-console.log(blogs);
 </script>
 
 <template>
