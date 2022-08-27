@@ -96,6 +96,28 @@ onMounted(() => {
           >
             Buy Unranked Smurf
           </a>
+          <div
+            class="trustpilot-widget pt-5"
+            data-locale="en-US"
+            data-template-id="5419b6a8b0d04a076446a9ad"
+            data-businessunit-id="60929b432ebaea0001d71961"
+            data-style-height="24px"
+            data-style-width="100%"
+            data-theme="dark"
+            data-min-review-count="10"
+          >
+            <a
+              href="https://www.trustpilot.com/review/nightsmurf.com"
+              target="_blank"
+              rel="noopener"
+              class="text-decoration-none"
+              ><img
+                height="50"
+                src="https://res.cloudinary.com/droomsocial/image/upload/v1661588879/Untitled_mmveru.png"
+                alt="Trustpilot Reviews Nightsmurf"
+                title="Trustpilot Nightsmurf"
+            /></a>
+          </div>
         </div>
         <div class="col-sm-6 col-0 d-none d-xl-block">
           <img

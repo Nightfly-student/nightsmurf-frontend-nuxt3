@@ -9,7 +9,7 @@ onMounted(() => {
 });
 
 const route = useRoute();
-    const config = useRuntimeConfig();
+const config = useRuntimeConfig();
 const slug = ref(route.params.slug);
 const {
   data: product,

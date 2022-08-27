@@ -117,7 +117,7 @@ useHead({
         />
       </div>
       <div>
-        <!-- blog posts -->
+        <BoxesBlogCard />
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@ const { data: blog, refresh } = await useAsyncData(
     let data;
     try {
       data = await apiFetch(
-        `${blogConfig.DOMAIN}/api/blogs/${route.params.slug}`
+        `${blogConfig.DOMAIN}/api/blogs/${route.params.slug}?page=1&limit=3`
       );
       return data;
     } catch (e) {
@@ -31,10 +31,13 @@ const { data: blog, refresh } = await useAsyncData(
 );
 await refresh();
 
-const { data: blogs } = useFetch(`${blogConfig.DOMAIN}/api/blogs/?limit=2`);
+if (!blog.value) {
+  navigateTo("/blog");
+}
+
 const head = async () => {
   useHead({
-    title: `${blog.value.front.metaTitle}`,
+    title: `${blog.value.blog.metaTitle}`,
     link: [
       {
         rel: "canonical",
@@ -44,50 +47,83 @@ const head = async () => {
     meta: [
       {
         name: "description",
-        content: `${blog.value.front.metaDesc}`,
+        content: `${blog.value.blog.metaDesc}`,
       },
       {
         property: "og:title",
-        content: `${blog.value.front.metaTitle} - Nightsmurf`,
+        content: `${blog.value.blog.metaTitle} - Nightsmurf`,
       },
       {
         property: "og:description",
-        content: `${blog.value.front.metaDesc}`,
+        content: `${blog.value.blog.metaDesc}`,
       },
       {
         property: "og:image",
-        content: `${blog.value.front.socialImage}`,
+        content: `${blog.value.blog.head}`,
+      },
+      {
+        property: "og:image:width",
+        content: 1920,
+      },
+      {
+        property: "og:image:height",
+        content: 1080,
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:label1",
+        content: "Written by",
+      },
+      {
+        name: "twitter:data1",
+        content: `${blog.value.blog.author}`,
+      },
+      {
+        name: "twitter:label2",
+        content: "Est. reading time",
+      },
+      {
+        name: "twitter:data2",
+        content: `${blog.value.blog.est} minutes`,
       },
       { property: "og:type", content: "article" },
+      {
+        property: "article:published_time",
+        content: blog.value.blog.createdAt,
+      },
+      { property: "article:modified_time", content: blog.value.blog.updatedAt },
     ],
   });
 };
 await head();
+const blogs = await apiFetch(`${blogConfig.DOMAIN}/api/blogs/recent/${route.params.slug}?page=1&limit=5`);
+console.log(blogs);
 </script>
 
 <template>
-  <div class="container-xl pt-5">
-    <div class="row no-gutter pt-5">
-      <div class="col-12 col-md-8">
+  <div class="container-xl pt-5" v-if="blog">
+    <div class="row no-gutter gy-4 pt-5">
+      <div class="col-12 col-xl-8">
         <div class="text-light w-100 h-100 card m-auto shadow px-3">
           <img
             class="img-size pt-3 pb-3 m-auto"
-            :src="`${blog.front.socialImage}`"
+            :alt="blog.blog.headAlt"
+            :title="blog.blog.headTitle"
+            :src="`${blog.blog.head}`"
           />
-          <h1 class="text-center">{{ blog.front.title }}</h1>
+          <p class="text-end text-muted pe-4 m-0 pb-2">
+            {{ new Date(blog.blog.createdAt).toDateString() }}
+          </p>
+          <h1 class="text-center">{{ blog.blog.title }}</h1>
           <div id="blogPost" class="pb-4">
-            <div v-html="blog.content" />
-            <hr />
-            <div class="row">
-              <div>
-                <p class="m-0">Author: {{ blog.front.author }}</p>
-                <p class="m-0">Posted At {{ blog.front.date }}</p>
-              </div>
-            </div>
+            <div v-html="blog.blog.body" />
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-lg-4">
         <div class="card text-light text-center p-3 shadow mb-4">
           <img
             src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/free-lootbox_gm8h7u.png"
@@ -107,31 +143,39 @@ await head();
             >Open Now!</NuxtLink
           >
         </div>
+
+        <div class="card text-light p-3 shadow mb-4">
+          <h4 class="text-center">Author</h4>
+          <hr />
+          <div class="m-auto">
+            <img class="img-fluid img-circle" :src="blog.author.avatar" />
+            <p class="fs-4 text-start mt-2">{{ blog.author.author }}</p>
+          </div>
+        </div>
+
         <div class="card text-light p-3 mb-4 shadow">
           <div>
             <h4 class="text-center">Recent Articles</h4>
             <hr />
             <div class="d-flex flex-column">
               <div
-                v-for="blog in blogs"
+                v-for="blog in blogs.docs"
                 :key="blog.slug"
                 class="mb-3 card shadow bg-dark"
               >
-                <div class="row align-items-center">
-                  <div class="col-4 col-md-4">
-                    <img
-                      :src="`${blog.frontmatter.socialImage}`"
-                      class="img-recent"
-                      alt=""
-                    />
+                <div class="row align-items-center gy-2">
+                  <div class="col-3 col-lg-5">
+                    <img :src="`${blog.head}`" class="img-recent" alt="" />
                   </div>
-                  <div class="col-6 col-md-8 align-middle">
+                  <div class="col-7 col-lg-7 align-middle">
                     <NuxtLink
                       :to="'/blog/' + blog.slug"
                       class="text-light text-decoration-none t-hover"
-                      >{{ blog.frontmatter.title }}</NuxtLink
+                      >{{ blog.title }}</NuxtLink
                     >
-                    <p class="m-0 small-size">{{ blog.frontmatter.date }}</p>
+                    <p class="m-0 small-size">
+                      {{ new Date(blog.createdAt).toDateString() }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -203,5 +247,10 @@ await head();
 }
 .bg-dark {
   background: #1e1e1e !important;
+}
+.img-circle {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
 }
 </style>

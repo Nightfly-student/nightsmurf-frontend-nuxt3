@@ -10,7 +10,6 @@ import {
 import { useMainStore } from "~~/stores";
 
 const store = useMainStore();
-
 </script>
 
 <template>
@@ -83,28 +82,31 @@ const store = useMainStore();
         </ul>
       </li>
       <li v-if="store.getIsAdmin">
-        <NuxtLink
-          to="/admin/users"
-          class="nav-link px-0 align-middle"
-        >
+        <NuxtLink to="/admin/users" class="nav-link px-0 align-middle">
           <BIconDiagram2 class="fs-4" />
           <span class="ms-1 d-none d-sm-inline">Users</span>
         </NuxtLink>
       </li>
       <li v-if="store.getIsAdmin">
-        <NuxtLink
-          to="/admin/roles"
-          class="nav-link px-0 align-middle"
-        >
+        <NuxtLink to="/admin/blog" class="nav-link px-0 align-middle">
+          <BIconDiagram2 class="fs-4" />
+          <span class="ms-1 d-none d-sm-inline">Blog</span>
+        </NuxtLink>
+      </li>
+      <li v-if="store.getIsAdmin">
+        <NuxtLink to="/admin/author" class="nav-link px-0 align-middle">
+          <BIconDiagram2 class="fs-4" />
+          <span class="ms-1 d-none d-sm-inline">Author</span>
+        </NuxtLink>
+      </li>
+      <li v-if="store.getIsAdmin">
+        <NuxtLink to="/admin/roles" class="nav-link px-0 align-middle">
           <BIconDiagram2 class="fs-4" />
           <span class="ms-1 d-none d-sm-inline">Roles</span>
         </NuxtLink>
       </li>
       <li v-if="store.getIsAdmin">
-        <NuxtLink
-          to="/admin/affiliates"
-          class="nav-link px-0 align-middle"
-        >
+        <NuxtLink to="/admin/affiliates" class="nav-link px-0 align-middle">
           <BIconDiagram2 class="fs-4" />
           <span class="ms-1 d-none d-sm-inline">Affiliates</span>
         </NuxtLink>
@@ -133,7 +135,6 @@ const store = useMainStore();
   padding-top: 150px;
 }
 .router-link-active {
-    color: white!important;
+  color: white !important;
 }
-
 </style>

@@ -5,8 +5,8 @@ import {
   BIconTwitter,
   BIconInstagram,
   BIconYoutube,
+  BIconTiktok,
 } from "bootstrap-icons-vue";
-
 </script>
 
 <template>
@@ -35,14 +35,34 @@ import {
             <NuxtLink to="https://www.instagram.com/nightsmurf_com/?hl=en"
               ><BIconInstagram class="icon-size me-4"
             /></NuxtLink>
-            <NuxtLink to="https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ"
+            <NuxtLink
+              to="https://www.youtube.com/channel/UCHxqE196yW9jixWDc3LsKXQ"
               ><BIconYoutube class="icon-size me-4"
+            /></NuxtLink>
+            <NuxtLink
+              to="https://www.tiktok.com/@nightsmurfcom?_t=8VB3l4TLYhi&_r=1TikTok"
+              ><BIconTiktok class="icon-size me-4"
             /></NuxtLink>
           </div>
         </div>
         <div class="col-md-3 col-6 padding-footer">
           <p class="fs-5">Nightsmurf</p>
           <ul class="nav flex-column">
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to="/blog">Blog</NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to="/mmr-checker">MMR Checker</NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to="/free-lol-account">Free Lol Account</NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to="/loyality">Loyality Program</NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to="/affiliate">Become Affiliate</NuxtLink>
+            </li>
             <li class="nav-item">
               <NuxtLink class="nav-link" to="/contact">Contact Us</NuxtLink>
             </li>

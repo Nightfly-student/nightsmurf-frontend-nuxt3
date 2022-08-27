@@ -97,11 +97,15 @@ await head();
           >
             <a
               href="https://www.trustpilot.com/review/nightsmurf.com"
+              alt="Trustpilot Reviews Nightsmurf"
+              title="Trustpilot Nightsmurf"
               target="_blank"
               rel="noopener"
               class="text-decoration-none"
-              >Trustpilot</a
-            >
+              ><img
+                height="75"
+                src="https://res.cloudinary.com/droomsocial/image/upload/v1661588879/Untitled_mmveru.png"
+            /></a>
           </div>
         </div>
       </div>

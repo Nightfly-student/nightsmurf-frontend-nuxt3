@@ -5,10 +5,11 @@ import {
   BIconInstagram,
   BIconYoutube,
 } from "bootstrap-icons-vue";
+import apiFetch from "~~/composables/useInterceptorFetch";
 
 const config = useRuntimeConfig();
 const route = useRoute();
-const { data: blogs } = useFetch(`${config.DOMAIN}/api/blogs/`);
+const blogs = await apiFetch(`${config.DOMAIN}/api/blogs/?page=1&limit=6`);
 
 useHead({
   title: "Our Blog",
@@ -42,9 +43,9 @@ useHead({
 
 <template>
   <div>
-    <header class="text-light">
+    <!-- <header class="text-light">
       <div class="container-xl">
-        <div class="row">
+        <div class="row gy-4">
           <div class="col-xl-7 col-sm-12 col-12">
             <h1 class="pt-3">Blog Posts</h1>
             <p class="">Written with love</p>
@@ -52,34 +53,35 @@ useHead({
           <div class="col-xl-5 col-sm-12 col-12"></div>
         </div>
       </div>
-    </header>
+    </header> -->
     <div class="container-xl divider-top pb-4">
       <div class="row gx-5">
         <div class="col-12 col-md-8">
-          <div
-            v-for="blog in blogs"
+          <NuxtLink
+            v-for="blog in blogs.docs"
+            type="div"
             :key="blog.slug"
-            @click="$router.push(`/blog/${blog.slug}`)"
-            class="card mb-4 text-light shadow"
+            :to="'/blog/' + blog.slug"
+            class="card mb-4 text-light shadow text-decoration-none"
           >
             <img
-              :src="`${blog.frontmatter.socialImage}`"
+              :src="`${blog.head}`"
               class="img-fluid img-size"
               alt=""
             />
             <div class="card-block px-2 pt-4">
-              <h4 class="card-title">{{ blog.frontmatter.title }}</h4>
+              <h4 class="card-title">{{ blog.title }}</h4>
               <p
                 class="card-text pb-4 mb-5"
-                v-html="blog.frontmatter.metaDesc"
+                v-html="blog.metaDesc"
               ></p>
               <div class="position-absolute bottom-0 mb-3">
-                <NuxtLink :to="'/blog/' + blog.slug" class="btn btn-primary"
-                  >Read More</NuxtLink
+                <NuxtLink :to="'/blog/' + blog.slug" class="btn btn-outline-primary"
+                  >Continue Reading</NuxtLink
                 >
               </div>
             </div>
-          </div>
+          </NuxtLink>
         </div>
         <div class="col-12 col-md-4">
           <div class="card text-light text-center p-3 shadow mb-4">
