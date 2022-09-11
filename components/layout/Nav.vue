@@ -605,17 +605,6 @@ m38 -75 c-3 -3 -9 2 -12 12 -6 14 -5 15 5 6 7 -7 10 -15 7 -18z"
             >Affiliate</NuxtLink
           >
           <NuxtLink class="nav-item nav-link" to="/blog">Blog</NuxtLink>
-          <div class="nav-item nav-link ps-0 ps-md-4">
-            <form>
-              <select class="border-0" id="locale-select" v-model="$i18n.locale">
-                <option value="en">English</option>
-                <option value="es">Espanol</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="nl">Nederlands</option>
-              </select>
-            </form>
-          </div>
         </div>
         <div class="navbar-nav ms-auto" v-if="mounted">
           <NuxtLink

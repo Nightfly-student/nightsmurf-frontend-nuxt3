@@ -24,7 +24,11 @@ import {
               /><span class="ms-3">Nightsmurf</span>
             </h2>
             <p>
-              {{$t('Cheapest League of Legends Smurfs for you to stomp kids, and make them ragequit.')}}
+              {{
+                $t(
+                  "Cheapest League of Legends Smurfs for you to stomp kids, and make them ragequit."
+                )
+              }}
             </p>
           </div>
           <div class="w-75 m-auto">
@@ -51,16 +55,24 @@ import {
               <NuxtLink class="nav-link" to="/blog">Blog</NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/mmr-checker">MMR Checker</NuxtLink>
+              <NuxtLink class="nav-link" to="/mmr-checker"
+                >MMR Checker</NuxtLink
+              >
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/free-lol-account">Free Lol Account</NuxtLink>
+              <NuxtLink class="nav-link" to="/free-lol-account"
+                >Free Lol Account</NuxtLink
+              >
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/loyality">Loyality Program</NuxtLink>
+              <NuxtLink class="nav-link" to="/loyality"
+                >Loyality Program</NuxtLink
+              >
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/affiliate">Become Affiliate</NuxtLink>
+              <NuxtLink class="nav-link" to="/affiliate"
+                >Become Affiliate</NuxtLink
+              >
             </li>
             <li class="nav-item">
               <NuxtLink class="nav-link" to="/contact">Contact Us</NuxtLink>
@@ -600,11 +612,26 @@ m38 -75 c-3 -3 -9 2 -12 12 -6 14 -5 15 5 6 7 -7 10 -15 7 -18z"
         </div>
       </div>
       <div class="">
+        <div class="text-center pb-3">
+          <form>
+            <select class="border-0" id="locale-select" v-model="$i18n.locale">
+              <option value="en">English</option>
+              <option value="es">Espanol</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="nl">Nederlands</option>
+            </select>
+          </form>
+        </div>
         <p class="text-center text-light">
-          {{$t('Nightsmurf.com is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.')}}
+          {{
+            $t(
+              "Nightsmurf.com is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc."
+            )
+          }}
         </p>
         <p class="text-center text-light">
-          Copyright &copy; 2022. {{$t('Created by')}} Nightfly.
+          Copyright &copy; 2022. {{ $t("Created by") }} Nightfly.
         </p>
       </div>
     </div>
