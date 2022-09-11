@@ -132,16 +132,16 @@ const checkCoupon = () => {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <h3>Apply Coupon</h3>
-            <p>Enter your coupon code here below.</p>
+            <h3>{{$t('Apply Coupon')}}</h3>
+            <p>{{$t('Enter your coupon code here below.')}}</p>
             <input
               v-model="coupon"
-              placeholder="Coupon"
+              :placeholder="$t('Coupon')"
               class="p-1 coupon-size"
               type="text"
             />
             <button @click="checkCoupon" class="btn btn-primary ms-2">
-              Apply Coupon
+              {{$t('Apply Coupon')}}
             </button>
             <button v-if="store.getIsLogged" @click="getLoyalityDiscount" class="btn btn-primary ms-1">
               Loyalty
@@ -155,7 +155,7 @@ const checkCoupon = () => {
               >
             </p>
             <p class="fs-5">
-              Price Per Account:
+              {{$t('Price Per Account')}}:
               <span class="float-end fw-bold"
                 >&euro;{{ product.price.toFixed(2) }}</span
               >
@@ -167,7 +167,7 @@ const checkCoupon = () => {
               }}</span>
             </p>
             <p class="fs-5">
-              Warranty:
+              {{$t('Warranty')}}:
               <span class="float-end fw-bold">Lifetime</span>
             </p>
             <hr />
@@ -189,7 +189,7 @@ const checkCoupon = () => {
               data-bs-dismiss="modal"
               class="btn btn-primary w-100"
             >
-              Continue (&euro;{{ (product.price * quantityValue).toFixed(2) }})
+              {{$t('Continue')}} (&euro;{{ (product.price * quantityValue).toFixed(2) }})
             </button>
           </div>
         </div>
@@ -211,9 +211,9 @@ const checkCoupon = () => {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <p class="mb-1 fs-5">Delivery Email</p>
+            <p class="mb-1 fs-5">{{$t('Delivery Email')}}</p>
             <input
-              placeholder="Email Address"
+              :placeholder="$t('Email Address')"
               class="p-1 fs-6 input-text w-75"
               :value="email"
               @change="onChangeMail($event.target.value)"
@@ -221,9 +221,9 @@ const checkCoupon = () => {
             />
             <p class="m-0 text-danger">{{ emailErr }}</p>
             <hr />
-            <h3>Payment Methods</h3>
+            <h3>{{$t('Payment Methods')}}</h3>
             <div v-if="!startPay">
-              <p>click on payment method to start payment process</p>
+              <p>{{$t('click on payment method to start payment process')}}</p>
               <button class="btn btn-dark" @click="startPayment('stripe')">
                 <img
                   class="img-size"
@@ -236,7 +236,7 @@ const checkCoupon = () => {
                 <img class="img-size" src="/assets/images/payop.png" />
               </button> -->
               <p class="m-0 tiny-text">
-                Klarna/Sofort payments can take up to 3 days to be processed.
+                {{$t('Klarna/Sofort payments can take up to 3 days to be processed.')}}
               </p>
             </div>
             <div v-else class="text-center mt-5">
@@ -253,7 +253,7 @@ const checkCoupon = () => {
               data-bs-toggle="modal"
               data-bs-dismiss="modal"
             >
-              Go back
+              {{$t('Go back')}}
             </button>
           </div>
         </div>

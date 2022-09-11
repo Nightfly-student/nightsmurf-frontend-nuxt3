@@ -24,8 +24,7 @@ import {
               /><span class="ms-3">Nightsmurf</span>
             </h2>
             <p>
-              Cheapest League of Legends Smurfs for you to stomp kids, and make
-              them ragequit.
+              {{$t('Cheapest League of Legends Smurfs for you to stomp kids, and make them ragequit.')}}
             </p>
           </div>
           <div class="w-75 m-auto">
@@ -602,14 +601,10 @@ m38 -75 c-3 -3 -9 2 -12 12 -6 14 -5 15 5 6 7 -7 10 -15 7 -18z"
       </div>
       <div class="">
         <p class="text-center text-light">
-          Nightsmurf.com is not endorsed by Riot Games and does not reflect the
-          views or opinions of Riot Games or anyone officially involved in
-          producing or managing League of Legends. League of Legends and Riot
-          Games are trademarks or registered trademarks of Riot Games, Inc.
-          League of Legends © Riot Games, Inc.
+          {{$t('Nightsmurf.com is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.')}}
         </p>
         <p class="text-center text-light">
-          Copyright &copy; 2022. Created by Nightfly.
+          Copyright &copy; 2022. {{$t('Created by')}} Nightfly.
         </p>
       </div>
     </div>

@@ -82,10 +82,10 @@ onMounted(() => {
       <div class="row">
         <div class="col-xl-6 col-sm-12 col-12">
           <h1 id="header_title" class="pt-3">
-            {{ title }}
+            {{ $t(title) }}
           </h1>
           <p id="header_text" class="">
-            {{ body }}
+            {{ $t(body) }}
           </p>
           <a
             v-if="button"
@@ -94,7 +94,7 @@ onMounted(() => {
             role="button"
             class="btn btn-primary p-2 px-3 fs-5"
           >
-            Buy Unranked Smurf
+            {{$t('Buy Unranked Smurf')}}
           </a>
           <div
             class="trustpilot-widget pt-5"

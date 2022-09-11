@@ -2,7 +2,7 @@
 
 interface QuoteProps {
     title: string,
-    highlight: string
+    highlight?: string
 }
 
 const QuoteProps = defineProps<QuoteProps>();
@@ -12,7 +12,7 @@ const QuoteProps = defineProps<QuoteProps>();
 <template>
   <div class="banner">
     <h2 id="banner_text" class="text-center text-light p-5 fs-1">
-      {{title}} <span>{{highlight}}</span>
+      {{$t(title)}}
     </h2>
   </div>
 </template>

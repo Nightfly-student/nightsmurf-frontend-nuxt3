@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Nightsmurf` : "Nightsmurf";
@@ -12,6 +13,11 @@ const nuxtApp = useNuxtApp();
 
 nuxtApp.hook("page:finish", () => {
   window.scrollTo(0, 0);
+});
+
+onMounted(() => {
+  const t = useI18n();
+  t.locale.value = navigator.language.split('-')[0];
 });
 </script>
 

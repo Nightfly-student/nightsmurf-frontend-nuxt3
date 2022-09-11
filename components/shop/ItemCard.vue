@@ -13,12 +13,11 @@ interface CardProps {
   royalty?: any;
 }
 const props = defineProps<CardProps>();
-
 </script>
 
 <template>
   <div class="card text-light m-3 py-3 shadow" style="width: 18rem">
-    <p class="btn btn-primary button-warranty">Lifetime Warranty</p>
+    <p class="btn btn-primary button-warranty">{{ $t("Lifetime Warranty") }}</p>
     <img
       src="https://res.cloudinary.com/droomsocial/image/upload/v1659094304/yone_1_raaatp.jpg"
       class="card-img-top img-size-pos"
@@ -31,14 +30,14 @@ const props = defineProps<CardProps>();
       data-bs-toggle="modal"
       v-if="stock > 0 && home"
     >
-      Buy Now
+      {{$t('Buy Now')}}
     </button>
     <button
       href="#"
       class="btn btn-primary button-buy-now disabled"
       v-else-if="home"
     >
-      Out of Stock
+      {{$t('Out of Stock')}}
     </button>
     <button
       @click="$router.push(`/product/${product.slug}`)"
@@ -55,7 +54,7 @@ const props = defineProps<CardProps>();
       <div class="card-text">
         <div class="my-3">
           <div>
-            <BIconPiggyBank class="fs-4 me-2 text-primary" /> Price:
+            <BIconPiggyBank class="fs-4 me-2 text-primary" /> {{ $t("Price") }}:
             <strong class="float-end me-4"
               >&euro;{{ product.price.toFixed(2) }}</strong
             >

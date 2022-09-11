@@ -40,11 +40,10 @@ await refresh();
 <template>
   <div id="shop ">
     <div class="text-center info-box-shop">
-      <h2 class="text-light">Cheap League of Legends smurfs</h2>
+      <h2 class="text-light">{{$t('Cheap League of Legends smurfs')}}</h2>
       <div class="w-25 m-auto width-mobile-small">
         <p class="text-center text-light">
-          Our accounts are of the highest quality and are cheaper than the
-          competitors.
+          {{$t('OAAOFTH')}}
         </p>
       </div>
     </div>
