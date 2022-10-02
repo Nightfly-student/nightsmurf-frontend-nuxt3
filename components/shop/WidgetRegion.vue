@@ -134,7 +134,7 @@ const onRUClick = (active) => {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="onEUNEClick('EUNE')" :class="{ active: EUNE }">
+        <a class="nav-link shad" @click="onEUNEClick('EUNE')" :class="{ active: EUNE }">
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -560,10 +560,10 @@ m38 -75 c-3 -3 -9 2 -12 12 -6 14 -5 15 5 6 7 -7 10 -15 7 -18z"
 <style scoped>
 .nav-link {
   color: gainsboro !important;
-  background-color: #1b1e5a;
+  background-color: rgb(26, 25, 25);
 }
 .nav-link:hover {
-  background-color: #262a7a;
+  background-color: #2e2e2f;
 }
 .nav-link.active:hover {
   background-color: #247cff;
