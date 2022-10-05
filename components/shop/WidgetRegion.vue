@@ -11,7 +11,13 @@ const LAS = ref(false);
 const LAN = ref(false);
 const RU = ref(false);
 
+const loading = ref(false);
+
 const onClick = function (active) {
+  if (loading.value) {
+    return;
+  }
+  loading.value = true;
   EUW.value = false;
   EUNE.value = false;
   NA.value = false;
@@ -26,38 +32,65 @@ const onClick = function (active) {
 
 const onEUWClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   EUW.value = true;
 };
 const onEUNEClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   EUNE.value = true;
 };
 const onNAClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   NA.value = true;
 };
 const onTRClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   TR.value = true;
 };
 const onOCEClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   OCE.value = true;
 };
 const onBRClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   BR.value = true;
 };
 const onLASClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   LAS.value = true;
 };
 const onLANClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   LAN.value = true;
 };
 const onRUClick = (active) => {
   onClick(active);
+  setTimeout(() => {
+    loading.value = false;
+  }, 200);
   RU.value = true;
 };
 </script>
@@ -134,7 +167,11 @@ const onRUClick = (active) => {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link shad" @click="onEUNEClick('EUNE')" :class="{ active: EUNE }">
+        <a
+          class="nav-link shad"
+          @click="onEUNEClick('EUNE')"
+          :class="{ active: EUNE }"
+        >
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"

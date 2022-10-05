@@ -67,7 +67,7 @@ const props = defineProps<CardProps>();
 </script>
 
 <template>
-  <div>
+  <div v-if="!home || home && stock != 0">
     <div class="card text-light shadow">
       <p class="btn btn-primary button-warranty">
         {{ $t("Lifetime Warranty") }}
