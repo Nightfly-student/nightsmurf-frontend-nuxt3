@@ -93,7 +93,7 @@ import {
               >
             </li>
             <li class="nav-item">
-              <a href="http://localhost:3000/services/league-of-legends-accounts" class="nav-link">Buy and sell lol smurfs</a>
+              <a href="https://www.trainy.io/services/league-of-legends-accounts" class="nav-link">Buy and sell lol smurfs</a>
             </li>
           </ul>
         </div>
