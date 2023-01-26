@@ -92,6 +92,9 @@ import {
                 >Frequently Asked Questions</NuxtLink
               >
             </li>
+            <li class="nav-item">
+              <a href="https://www.trainy.io/services/league-of-legends-accounts" class="nav-link">Buy and sell lol smurfs</a>
+            </li>
           </ul>
         </div>
         <div class="col-md-3 col-6">
