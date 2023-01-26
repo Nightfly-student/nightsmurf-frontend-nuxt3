@@ -67,7 +67,7 @@ const props = defineProps<CardProps>();
 </script>
 
 <template>
-  <div v-if="!home || home && stock != 0">
+  <div>
     <div class="card text-light shadow">
       <p class="btn btn-primary button-warranty">
         {{ $t("Lifetime Warranty") }}
@@ -88,7 +88,7 @@ const props = defineProps<CardProps>();
       </button>
       <button
         href="#"
-        class="btn btn-primary button-buy-now disabled"
+        class="btn btn-secondary button-buy-now disabled"
         v-else-if="home"
       >
         {{ $t("Out of Stock") }}
@@ -143,10 +143,10 @@ const props = defineProps<CardProps>();
   border-radius: 5px;
 }
 .img-size-pos {
-  height: 300px;
+  height: 200px;
   width: auto;
   object-fit: cover;
-  object-position: 65% 85%;
+  object-position: 95% 15%;
 }
 .button-buy-now {
   margin: auto;

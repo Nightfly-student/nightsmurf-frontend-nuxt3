@@ -7,11 +7,11 @@ const blogs = await apiFetch(`${config.DOMAIN}/api/blogs/?page=1&limit=3`);
 </script>
 
 <template>
-  <div class="text-white container-xl">
+  <div class="text-white container-xl pb-5">
     <h2 class="text-center pb-2">Latest News</h2>
     <div class="row justify-content-center equal">
       <div class="col-12 col-lg-4" v-for="blog in blogs.docs" :key="blog.slug">
-        <NuxtLink :to="`/blog/${blog.slug}`" class="card card-hover rounded h-100 text-decoration-none text-white">
+        <NuxtLink :to="`/blog/${blog.slug}`" class="card card-hover rounded h-100 text-decoration-none text-white rounded">
           <img
             class="img-fluid rounded"
             :alt="blog.headAlt"
@@ -19,8 +19,7 @@ const blogs = await apiFetch(`${config.DOMAIN}/api/blogs/?page=1&limit=3`);
             :src="blog.head"
           />
           <h2 class="fs-4 text-center pt-2">{{ blog.title }}</h2>
-          <p class="fs-6 p-2">{{ blog.metaDesc }}</p>
-          <button class="btn btn-outline-primary">Continue Reading</button>
+          <p class="d-inline-block fs-6 p-2 text-truncate">{{ blog.metaDesc }}</p>
         </NuxtLink>
       </div>
     </div>
